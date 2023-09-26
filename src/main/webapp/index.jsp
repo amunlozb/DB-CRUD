@@ -12,16 +12,21 @@
 <!-- Formulario para crear producto -->
 
 <h2>Crear/Actualizar Producto</h2>
+
 <form method="post" action="CRUDServlet">
-    <input type="hidden" name="action" value="createOrUpdate">
-    <label for="id">ID:</label>
-    <input type="text" id="id" name="id" readonly>
+   <input type="hidden" name="action" value="createOrUpdate">
+
+    <label for="nombre">Nombre</label>
+    <input type="text" id="nombre" name="nombre">
     <br>
-    <label for="name">Name:</label>
-    <input type="text" id="name" name="name" required>
+    <label for="descripcion">Descripcion:</label>
+    <input type="text" id="descripcion" name="descripcion" required>
     <br>
-    <label for="description">Description:</label>
-    <textarea id="description" name="description"></textarea>
+    <label for="peso">Peso:</label>
+    <textarea id="peso" name="peso"></textarea>
+    <br>
+    <label for="stock">Stock:</label>
+    <textarea id="stock" name="stock"></textarea>
     <br>
     <button type="submit">Save</button>
 </form>
