@@ -10,6 +10,7 @@
 <h1>Actividad CRUD - Angel Munoz Lozano</h1>
 
 <!-- Formulario para crear producto -->
+
 <h2>Crear/Actualizar Producto</h2>
 <form method="post" action="CRUDServlet">
     <input type="hidden" name="action" value="createOrUpdate">
@@ -30,16 +31,17 @@
 
 <form method="post" action="updateTable">
     <table>
-        // table head
         <thead>
             <tr>
                 <th>Nombre</th>
                 <th>Descripcion</th>
                 <th>Peso</th>
                 <th>Stock</th>
+                <th>Acción</th>
              </tr>
         </thead>
-        // table body
+
+        <!-- for (Producto producto : listado) -->
         <tbody>
             <tr>
                 <td>product.getNombre()</td>
@@ -53,7 +55,7 @@
             </tr>
     </table>
 
-    <!-- Update button -->
+
     <input type="submit" value="Actualizar Datos">
 </form>
 
