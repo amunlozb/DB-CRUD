@@ -41,7 +41,10 @@
              </tr>
         </thead>
 
-        <!-- for (Producto producto : listado) -->
+        <%--    listado con objectos Producto = listado
+
+                for (Producto p : listado)
+                   <tr> p.getNombre() </tr>             --%>
         <tbody>
             <tr>
                 <td>product.getNombre()</td>
