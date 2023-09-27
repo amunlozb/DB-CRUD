@@ -24,10 +24,12 @@ public class Controller {
         }
     }
 
-    public static List<Product> obtenerListaProductos() throws SQLException {
+    public static List<Product> obtenerListaProductos() throws SQLException, ClassNotFoundException {
         List<Product> listado = new ArrayList<Product>();
 
-        ResultSet resultadoConsulta = DBM.query("SELECT * FROM productos");
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        dbm.openConnection();
+        ResultSet resultadoConsulta = dbm.query("SELECT * FROM productos");
 
         while (resultadoConsulta.next()) {
             Product elemento = new Product();
@@ -39,6 +41,8 @@ public class Controller {
 
             listado.add(elemento);
         }
+
+        dbm.closeConnection();
 
         return listado;
     }

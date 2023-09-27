@@ -1,3 +1,7 @@
+<%@ page import="com.angel.db.controller.Controller" %>
+<%@ page import="com.angel.db.model.Product" %>
+<%@ page import="java.util.List" %>
+<%@ page import="java.util.ArrayList" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
@@ -13,7 +17,7 @@
 
 <h2>Crear/Actualizar Producto</h2>
 
-<form method="post" action="CRUDServlet">
+<form method="post" action=/ProcessForm>
    <input type="hidden" name="action" value="createOrUpdate">
 
     <label for="nombre">Nombre</label>
@@ -34,7 +38,7 @@
 <!-- Lista de productos -->
 <h2>Productos</h2>
 
-<form method="post" action="updateTable">
+<form method="post" action="Controller">
     <table>
         <thead>
             <tr>
@@ -46,21 +50,20 @@
              </tr>
         </thead>
 
-        <%--    listado con objectos Producto = listado
-
-                for (Producto p : listado)
-                   <tr> p.getNombre() </tr>             --%>
+        <% List<Product> listado = Controller.obtenerListaProductos(); %>
+        <% for (Product p : listado)  {%>
         <tbody>
             <tr>
-                <td>product.getNombre()</td>
-                <td>product.getDescripcion()</td>
-                <td>product.getPeso()</td>
-                <td>product.getStock()</td>
+                <td><%= p.getNombre() %></td>
+                <td><%= p.getDescripcion() %></td>
+                <td><%= p.getPeso() %></td>
+                <td><%= p.getStock() %></td>
                 <td>
                     <a href="Controller?action=edit">Edit</a> |
                     <a href="Controller?action=delete">Delete</a>
                 </td>
             </tr>
+        <% }%>
     </table>
 
 
